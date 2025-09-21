@@ -22,6 +22,11 @@ $contextOptions = [
 	]
 ];
 
+$context = stream_context_create($contextOptions);
+// 3. Fetch the data using file_get_contents
+// The '@' symbol suppresses any warnings, so we can handle errors ourselves cleanly.
+echo "Fetching data from API...\n";
+$jsonData = @file_get_contents($apiUrl, false, $context);
 
 
 
